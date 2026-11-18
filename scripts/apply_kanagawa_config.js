@@ -173,6 +173,326 @@ const PRESETS = {
       scrimBase: "#EDF6F8",
     },
   },
+  "catppuccin-mocha": {
+    agentAvatar: {
+      bgStops: ["#F5E0DC", "#E6DCF5", "#DCE0F9"],
+      iconStops: ["#8839EF", "#1E66F5", "#179299"],
+    },
+    dark: {
+      chromeBg: "#181825",
+      chromeFg: "#CDD6F4",
+      primary: "#CBA6F7",
+      accentBlue: "#89B4FA",
+      accentAqua: "#94E2D5",
+      accentGreen: "#A6E3A1",
+      accentPink: "#F5C2E7",
+      accentViolet: "#B4BEFE",
+      accentOrange: "#FAB387",
+      text: "#CDD6F4",
+      textMuted: "#A6ADC8",
+      textSubtle: "#6C7086",
+      surfaceBase: "#1E1E2E",
+      sidebarBase: "#181825",
+      overlayBase: "#313244",
+      scrimBase: "#11111B",
+      selection: "#45475A",
+    },
+    light: {
+      chromeBg: "#E6E9EF",
+      chromeFg: "#4C4F69",
+      primary: "#8839EF",
+      text: "#4C4F69",
+      textMuted: "#6C6F85",
+      paper0: "#BCC0CC",
+      paper1: "#CCD0DA",
+      paper2: "#DCE0E8",
+      paper3: "#EFF1F5",
+      surfaceBase: "#EFF1F5",
+      sidebarBase: "#E6E9EF",
+      overlayBase: "#EFF1F5",
+      scrimBase: "#DCE0E8",
+    },
+  },
+  "rose-pine": {
+    agentAvatar: {
+      bgStops: ["#FAF4ED", "#F5E5E0", "#EAE0EE"],
+      iconStops: ["#907AA9", "#B4637A", "#286983"],
+    },
+    dark: {
+      chromeBg: "#191724",
+      chromeFg: "#E0DEF4",
+      primary: "#EBBCBA",
+      accentBlue: "#31748F",
+      accentAqua: "#9CCFD8",
+      accentGreen: "#9CCFD8",
+      accentPink: "#EB6F92",
+      accentViolet: "#C4A7E7",
+      accentOrange: "#F6C177",
+      text: "#E0DEF4",
+      textMuted: "#908CAA",
+      textSubtle: "#6E6A86",
+      surfaceBase: "#1F1D2E",
+      sidebarBase: "#191724",
+      overlayBase: "#26233A",
+      scrimBase: "#16141F",
+      selection: "#403D52",
+    },
+    light: {
+      chromeBg: "#F2E9E1",
+      chromeFg: "#575279",
+      primary: "#907AA9",
+      text: "#575279",
+      textMuted: "#797593",
+      paper0: "#DFDAD9",
+      paper1: "#EDE4DB",
+      paper2: "#F2E9E1",
+      paper3: "#FFFAF3",
+      surfaceBase: "#FFFAF3",
+      sidebarBase: "#FAF4ED",
+      overlayBase: "#FFFAF3",
+      scrimBase: "#FAF4ED",
+    },
+  },
+  "tokyo-night": {
+    agentAvatar: {
+      bgStops: ["#E9ECF8", "#D8E0F8", "#E6DDF8"],
+      iconStops: ["#2E7DE9", "#7847BD", "#007197"],
+    },
+    dark: {
+      chromeBg: "#16161E",
+      chromeFg: "#C0CAF5",
+      primary: "#7AA2F7",
+      accentBlue: "#7AA2F7",
+      accentAqua: "#7DCFFF",
+      accentGreen: "#9ECE6A",
+      accentPink: "#F7768E",
+      accentViolet: "#BB9AF7",
+      accentOrange: "#FF9E64",
+      text: "#C0CAF5",
+      textMuted: "#A9B1D6",
+      textSubtle: "#565F89",
+      surfaceBase: "#1A1B26",
+      sidebarBase: "#1F2335",
+      overlayBase: "#24283B",
+      scrimBase: "#13141C",
+      selection: "#283457",
+    },
+    light: {
+      chromeBg: "#D5D6DB",
+      chromeFg: "#343B58",
+      primary: "#2E7DE9",
+      text: "#343B58",
+      textMuted: "#6172B0",
+      paper0: "#B7C1E3",
+      paper1: "#C9CBD4",
+      paper2: "#D5D6DB",
+      paper3: "#E1E2E7",
+      surfaceBase: "#E9E9ED",
+      sidebarBase: "#D5D6DB",
+      overlayBase: "#E1E2E7",
+      scrimBase: "#D5D6DB",
+    },
+  },
+  "nord-frost": {
+    agentAvatar: {
+      bgStops: ["#ECEFF4", "#E5E9F0", "#D8DEE9"],
+      iconStops: ["#5E81AC", "#81A1C1", "#2E3440"],
+    },
+    dark: {
+      chromeBg: "#242933",
+      chromeFg: "#ECEFF4",
+      primary: "#88C0D0",
+      accentBlue: "#81A1C1",
+      accentAqua: "#8FBCBB",
+      accentGreen: "#A3BE8C",
+      accentPink: "#BF616A",
+      accentViolet: "#B48EAD",
+      accentOrange: "#D08770",
+      text: "#ECEFF4",
+      textMuted: "#D8DEE9",
+      textSubtle: "#616E88",
+      surfaceBase: "#2E3440",
+      sidebarBase: "#292E39",
+      overlayBase: "#3B4252",
+      scrimBase: "#222630",
+      selection: "#434C5E",
+    },
+    light: {
+      chromeBg: "#E5E9F0",
+      chromeFg: "#2E3440",
+      primary: "#5E81AC",
+      text: "#2E3440",
+      textMuted: "#4C566A",
+      paper0: "#D8DEE9",
+      paper1: "#DFE4ED",
+      paper2: "#E5E9F0",
+      paper3: "#ECEFF4",
+      surfaceBase: "#F4F6FA",
+      sidebarBase: "#E5E9F0",
+      overlayBase: "#ECEFF4",
+      scrimBase: "#E5E9F0",
+    },
+  },
+  "everforest": {
+    agentAvatar: {
+      bgStops: ["#FDF6E3", "#EFEBD4", "#E2DFC4"],
+      iconStops: ["#4F7A48", "#35A77C", "#2D353B"],
+    },
+    dark: {
+      chromeBg: "#232A2E",
+      chromeFg: "#D3C6AA",
+      primary: "#A7C080",
+      accentBlue: "#7FBBB3",
+      accentAqua: "#83C092",
+      accentGreen: "#A7C080",
+      accentPink: "#D699B6",
+      accentViolet: "#D699B6",
+      accentOrange: "#E69875",
+      text: "#D3C6AA",
+      textMuted: "#9DA9A0",
+      textSubtle: "#7A8478",
+      surfaceBase: "#2D353B",
+      sidebarBase: "#272E33",
+      overlayBase: "#343F44",
+      scrimBase: "#1E2326",
+      selection: "#414B50",
+    },
+    light: {
+      chromeBg: "#EFEBD4",
+      chromeFg: "#5C6A72",
+      primary: "#4F7A48",
+      text: "#5C6A72",
+      textMuted: "#708089",
+      paper0: "#E6E2CC",
+      paper1: "#EFEBD4",
+      paper2: "#F4F0D9",
+      paper3: "#FDF6E3",
+      surfaceBase: "#FDF6E3",
+      sidebarBase: "#F4F0D9",
+      overlayBase: "#FDF6E3",
+      scrimBase: "#F4F0D9",
+    },
+  },
+  "gruvbox-warm": {
+    agentAvatar: {
+      bgStops: ["#FBF1C7", "#F2E5BC", "#EBDBB2"],
+      iconStops: ["#D65D0E", "#B57614", "#282828"],
+    },
+    dark: {
+      chromeBg: "#1D2021",
+      chromeFg: "#FBF1C7",
+      primary: "#FABD2F",
+      accentBlue: "#83A598",
+      accentAqua: "#8EC07C",
+      accentGreen: "#B8BB26",
+      accentPink: "#D3869B",
+      accentViolet: "#D3869B",
+      accentOrange: "#FE8019",
+      text: "#FBF1C7",
+      textMuted: "#EBDBB2",
+      textSubtle: "#A89984",
+      surfaceBase: "#282828",
+      sidebarBase: "#1D2021",
+      overlayBase: "#32302F",
+      scrimBase: "#171819",
+      selection: "#504945",
+    },
+    light: {
+      chromeBg: "#EBDBB2",
+      chromeFg: "#3C3836",
+      primary: "#AF3A03",
+      text: "#3C3836",
+      textMuted: "#665C54",
+      paper0: "#D5C4A1",
+      paper1: "#E2D2AC",
+      paper2: "#EBDBB2",
+      paper3: "#FBF1C7",
+      surfaceBase: "#FBF1C7",
+      sidebarBase: "#F2E5BC",
+      overlayBase: "#FBF1C7",
+      scrimBase: "#EBDBB2",
+    },
+  },
+  "vesper-minimal": {
+    agentAvatar: {
+      bgStops: ["#FFF5EB", "#FFE9D6", "#E6FFF8"],
+      iconStops: ["#C45D1E", "#101010", "#0D9488"],
+    },
+    dark: {
+      chromeBg: "#101010",
+      chromeFg: "#F5F5F5",
+      primary: "#FFC799",
+      accentBlue: "#A0C8FF",
+      accentAqua: "#99FFE4",
+      accentGreen: "#99FFE4",
+      accentPink: "#FF8080",
+      accentViolet: "#C4B5FD",
+      accentOrange: "#FFC799",
+      text: "#F5F5F5",
+      textMuted: "#A0A0A0",
+      textSubtle: "#666666",
+      surfaceBase: "#141414",
+      sidebarBase: "#0E0E0E",
+      overlayBase: "#1C1C1C",
+      scrimBase: "#0A0A0A",
+      selection: "#282828",
+    },
+    light: {
+      chromeBg: "#ECECEC",
+      chromeFg: "#18181B",
+      primary: "#C45D1E",
+      text: "#18181B",
+      textMuted: "#52525B",
+      paper0: "#D4D4D8",
+      paper1: "#E4E4E7",
+      paper2: "#F1F1F3",
+      paper3: "#FAFAFA",
+      surfaceBase: "#FFFFFF",
+      sidebarBase: "#F4F4F5",
+      overlayBase: "#FAFAFA",
+      scrimBase: "#F4F4F5",
+    },
+  },
+  "oxocarbon": {
+    agentAvatar: {
+      bgStops: ["#F4F4F4", "#E5F6FF", "#FFEAF4"],
+      iconStops: ["#0F62FE", "#EE5396", "#161616"],
+    },
+    dark: {
+      chromeBg: "#121212",
+      chromeFg: "#F2F4F8",
+      primary: "#FF7EB6",
+      accentBlue: "#78A9FF",
+      accentAqua: "#3DDBD9",
+      accentGreen: "#42BE65",
+      accentPink: "#FF7EB6",
+      accentViolet: "#BE95FF",
+      accentOrange: "#33B1FF",
+      text: "#F2F4F8",
+      textMuted: "#DDE1E6",
+      textSubtle: "#7B8491",
+      surfaceBase: "#161616",
+      sidebarBase: "#121212",
+      overlayBase: "#262626",
+      scrimBase: "#0F0F0F",
+      selection: "#393939",
+    },
+    light: {
+      chromeBg: "#E5E7EB",
+      chromeFg: "#161616",
+      primary: "#0F62FE",
+      text: "#161616",
+      textMuted: "#525252",
+      paper0: "#C6C6C6",
+      paper1: "#D8D8D8",
+      paper2: "#E8E8E8",
+      paper3: "#F4F4F4",
+      surfaceBase: "#FFFFFF",
+      sidebarBase: "#F4F4F4",
+      overlayBase: "#F4F4F4",
+      scrimBase: "#E8E8E8",
+    },
+  },
 };
 
 const MIME_MAP = {
@@ -243,6 +563,18 @@ function replaceCssVar(css, varName, value) {
   return css.replace(re, (_, prefix, _old, suffix) => `${prefix}${value}${suffix}`);
 }
 
+function mixRgb(rgbA, rgbB, weightA) {
+  const a = String(rgbA).split(",").map((n) => parseInt(n.trim(), 10));
+  const b = String(rgbB).split(",").map((n) => parseInt(n.trim(), 10));
+  if (a.length !== 3 || b.length !== 3 || a.some(isNaN) || b.some(isNaN)) return rgbB;
+  const w = weightA;
+  return [
+    Math.round(a[0] * w + b[0] * (1 - w)),
+    Math.round(a[1] * w + b[1] * (1 - w)),
+    Math.round(a[2] * w + b[2] * (1 - w)),
+  ].join(", ");
+}
+
 function buildSurfaceOverrideBlock(cfg) {
   const def = PRESETS["kanagawa-wave"];
   const d = cfg.dark;
@@ -259,7 +591,11 @@ function buildSurfaceOverrideBlock(cfg) {
   const dScrim = hexToRgb(d.scrimBase) || "11, 15, 23";
   const dBlue = hexToRgb(d.accentBlue) || "126, 156, 216";
   const dAqua = hexToRgb(d.accentAqua) || "122, 168, 159";
+  const dPrimary = hexToRgb(d.primary) || "230, 195, 132";
+  const dText = hexToRgb(d.text) || "234, 230, 211";
   const dSel = hexToRgb(d.selection) || "45, 79, 103";
+  const dCompLeft = mixRgb(dAqua, dSurf, 0.22);
+  const dCompRight = mixRgb(dPrimary, dSurf, 0.20);
 
   const lSurf = hexToRgb(l.surfaceBase) || "247, 243, 214";
   const lSide = hexToRgb(l.sidebarBase) || "235, 229, 194";
@@ -291,12 +627,62 @@ body:not(.theme-light)::before {
     radial-gradient(48% 46% at 86% 18%, rgba(${dScrim}, 0.14) 0%, rgba(${dScrim}, 0.54) 100%),
     linear-gradient(108deg, rgba(${dScrim}, 0.56) 0%, rgba(${dScrim}, 0.40) 56%, rgba(${dScrim}, 0.22) 100%) !important;
 }
-body:not(.theme-light):not([data-has-browser-hole="true"]) .browser-hole-ancestor[data-side-panel-focus-scope="true"]:not([data-has-browser-hole="true"]),
-body:not(.theme-light) [data-main-content-body],
-body:not(.theme-light) [role="navigation"][aria-label="Sidebar"],
-body:not(.theme-light) [data-testid="conversation-list-sidebar"] {
-  background-color: rgba(${dSide}, 0.44) !important;
-  border-color: rgba(${dAqua}, 0.18) !important;
+body:not(.theme-light) :is([data-testid="conversation-list-sidebar"], [data-testid="settings-sidebar"], div[role="navigation"][aria-label="Sidebar"]):not([role="navigation"] [data-testid="conversation-list-sidebar"]) {
+  background-image: linear-gradient(180deg, rgba(${dSide}, 0.76) 0%, rgba(${dSurf}, 0.54) 55%, rgba(${dScrim}, 0.74) 100%) !important;
+  border-color: rgba(${dBlue}, 0.16) !important;
+}
+:is([data-testid="conversation-list-sidebar"], div[role="navigation"][aria-label="Sidebar"]) :is([class~="bg-sidebar-secondary"], [data-selected="true"]) {
+  border-color: rgba(${dPrimary}, 0.48) !important;
+}
+html body:not(.theme-light) .agy-sheet[data-sheet-inset] [data-testid="aux-pane-split"] > div:first-child > div.browser-hole-opaque {
+  border-color: rgba(${dBlue}, 0.16) !important;
+}
+html body:not(.theme-light) [data-main-content-header] {
+  background-color: rgba(${dSide}, 0.28) !important;
+  border-bottom-color: rgba(${dBlue}, 0.12) !important;
+}
+body:not(.theme-light) :is(.leading-relaxed, [class*="prose"]) {
+  background-color: rgba(${dSurf}, 0.68) !important;
+  border-color: rgba(${dBlue}, 0.16) !important;
+}
+body:not(.theme-light) :is(.surface-composer, [class~="p-px"][class~="bg-card-border"]:not(.agy-user-bubble-frame)) {
+  background-color: transparent !important;
+  background-image: linear-gradient(135deg, rgba(${dAqua}, 0.54) 0%, rgba(${dText}, 0.38) 46%, rgba(${dPrimary}, 0.50) 100%) !important;
+}
+body:not(.theme-light) :is(.surface-composer, [class~="p-px"][class~="bg-card-border"]:not(.agy-user-bubble-frame)):focus-within {
+  background-image: linear-gradient(135deg, rgba(${dAqua}, 0.68) 0%, rgba(${dText}, 0.48) 46%, rgba(${dPrimary}, 0.64) 100%) !important;
+}
+body:not(.theme-light) :is(.surface-composer > .surface-composer-card, [class~="p-px"][class~="bg-card-border"]:not(.agy-user-bubble-frame) > [class~="bg-card"]) {
+  background-color: transparent !important;
+  background-image: linear-gradient(125deg, rgba(${dCompLeft}, 0.48) 0%, rgba(${dSurf}, 0.40) 52%, rgba(${dCompRight}, 0.44) 100%) !important;
+}
+body:not(.theme-light) :is(.agy-user-bubble, [data-testid="user-message-bubble"], [class*="group/user-input-step"] [class*="bg-card-border"] > [class~="bg-card"], [data-testid="user-input-step"] [class*="bg-card-border"] > [class~="bg-card"]) {
+  background: linear-gradient(135deg, rgba(${dSel}, 0.58), rgba(${dSurf}, 0.56)) !important;
+  border-color: rgba(${dAqua}, 0.44) !important;
+}
+body:not(.theme-light) .agy-user-bubble-frame::before {
+  border-color: rgba(${dAqua}, 0.58) !important;
+}
+body:not(.theme-light) button.inline-pill {
+  background-color: rgba(${dSurf}, 0.58) !important;
+  border-color: rgba(${dBlue}, 0.20) !important;
+}
+body:not(.theme-light) button.inline-pill:hover {
+  background-color: rgba(${dSel}, 0.72) !important;
+  border-color: rgba(${dPrimary}, 0.42) !important;
+}
+body:not(.theme-light) :not(pre) > code {
+  background-color: rgba(${dSurf}, 0.58) !important;
+  border-color: rgba(${dBlue}, 0.18) !important;
+}
+body:not(.theme-light) [data-step-list] [class*="bleed-contain"][class*="pl-3"] {
+  border-left-color: rgba(${dAqua}, 0.50) !important;
+  border-image-source: linear-gradient(180deg, rgba(${dAqua}, 0.62) 0%, rgba(${dPrimary}, 0.44) 100%) !important;
+  border-image-slice: 1 !important;
+}
+body:not(.theme-light) [data-step-list] [class*="hover:bg-muted"]:hover {
+  background-color: rgba(${dSel}, 0.48) !important;
+  border-color: rgba(${dAqua}, 0.28) !important;
 }
 body:not(.theme-light) .agy-overlay,
 body:not(.theme-light) .surface-glass,
@@ -304,7 +690,7 @@ body:not(.theme-light) [role="dialog"],
 body:not(.theme-light) [role="menu"],
 body:not(.theme-light) [role="listbox"] {
   background-color: rgba(${dOver}, 0.96) !important;
-  border-color: rgba(${dBlue}, 0.18) !important;
+  border-color: rgba(${dBlue}, 0.20) !important;
 }
 
 body.theme-light,
@@ -332,6 +718,14 @@ body.theme-light [role="menu"],
 body.theme-light [role="listbox"] {
   background-color: rgba(${lOver}, 0.97) !important;
   border-color: rgba(${lPri}, 0.24) !important;
+}
+body.theme-light button.inline-pill,
+body.theme-light :not(pre) > code {
+  background-color: rgba(${lSide}, 0.65) !important;
+  border-color: rgba(${lPri}, 0.20) !important;
+}
+body.theme-light [data-step-list] [class*="bleed-contain"][class*="pl-3"] {
+  border-left-color: rgba(${lPri}, 0.36) !important;
 }
 /* === KANAGAWA-CUSTOM-SURFACE-END === */`;
 }
@@ -506,6 +900,7 @@ function main() {
 
   // 1. Update :root palette & chrome vars
   const varUpdates = {
+    "--kw-sumiInk0": cfg.dark.chromeBg,
     "--kw-fujiWhite": cfg.dark.text,
     "--kw-oldWhite": cfg.dark.textMuted,
     "--kw-fujiGray": cfg.dark.textSubtle,
@@ -546,10 +941,13 @@ function main() {
     /^[ \t]*--kn-wallpaper\s*:\s*(url\("[^"]+"\))\s*;/m,
   ]);
   let uaUrl = extractUrl([
+    /body \.agy-user-bubble-frame::before\s*\{\s*background-image:\s*(url\("[^"]+"\))\s*!important;/,
     /\.agy-user-bubble-frame:has\(> \[data-testid="user-message-bubble"\]\)::before\s*\{\s*background-image:\s*(url\("[^"]+"\))\s*!important;/,
     /^[ \t]*--kn-user-avatar\s*:\s*(url\("[^"]+"\))\s*;/m,
   ]);
   let aaUrl = extractUrl([
+    /\[data-testid="agent-response"\] \[data-step-list\] > div\[class~="px-2"\]\[class~="py-1"\]::before\s*\{\s*background-image:\s*(url\("[^"]+"\))\s*!important;/,
+    /\[data-testid="agent-response"\] \[data-markdown-root\]::before\s*\{\s*background-image:\s*(url\("[^"]+"\))\s*!important;/,
     /\[data-testid="agent-response"\][^\{]*\{\s*background-image:\s*(url\("[^"]+"\))\s*!important;/,
     /^[ \t]*--kn-gemini-avatar\s*:\s*(url\("[^"]+"\))\s*;/m,
   ]);
@@ -609,12 +1007,12 @@ function main() {
   }
   if (aaUrl) {
     assetRules.push(
-      `[data-testid="agent-response"] div[class~="px-2"][class~="py-1"]:has(> [data-markdown-root])::before {\n  background-image: ${aaUrl} !important;\n}`
+      `[data-testid="agent-response"] [data-step-list] > div[class~="px-2"][class~="py-1"]::before {\n  background-image: ${aaUrl} !important;\n}`
     );
   }
   if (uaUrl) {
     assetRules.push(
-      `body .agy-user-bubble-frame:has(> [data-testid="user-message-bubble"])::before {\n  background-image: ${uaUrl} !important;\n}`
+      `body .agy-user-bubble-frame::before {\n  background-image: ${uaUrl} !important;\n}`
     );
   }
   assetRules.push("/* === KANAGAWA-EMBEDDED-ASSETS-END === */");

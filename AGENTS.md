@@ -48,7 +48,7 @@ This file instructs AI coding assistants (Antigravity, Claude Code, Codex, Curso
   ```powershell
   node scripts/apply_kanagawa_config.js --list-presets
   ```
-  *(Preset có sẵn: `kanagawa-wave`, `kanagawa-dragon`, `sakura-dusk`, `midnight-aqua`)*
+  *(12 preset có sẵn: `kanagawa-wave`, `kanagawa-dragon`, `sakura-dusk`, `midnight-aqua`, `catppuccin-mocha`, `rose-pine`, `tokyo-night`, `nord-frost`, `everforest`, `gruvbox-warm`, `vesper-minimal`, `oxocarbon`)*
 - **Đổi preset màu:**
   ```powershell
   .\customize-kanagawa.ps1 -Preset sakura-dusk
@@ -123,7 +123,7 @@ Khi truyền đường dẫn ảnh nằm ngoài thư mục `kanagawa-theme/`, `a
 - Re-launch Antigravity.
 
 #### B. Programmatic Customization
-- List presets (`kanagawa-wave`, `kanagawa-dragon`, `sakura-dusk`, `midnight-aqua`):
+- List presets (`kanagawa-wave`, `kanagawa-dragon`, `sakura-dusk`, `midnight-aqua`, `catppuccin-mocha`, `rose-pine`, `tokyo-night`, `nord-frost`, `everforest`, `gruvbox-warm`, `vesper-minimal`, `oxocarbon`):
   ```powershell
   node scripts/apply_kanagawa_config.js --list-presets
   ```

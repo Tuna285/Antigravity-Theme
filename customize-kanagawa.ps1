@@ -61,7 +61,7 @@ if ($Menu) {
     Write-Host "  [1] Doi hinh nen / Change Wallpaper (pick image)"
     Write-Host "  [2] Doi Avatar User / Change User Avatar (pick image)"
     Write-Host "  [3] Doi Avatar Agent / Change Agent Avatar (pick image)"
-    Write-Host "  [4] Chon Preset mau / Choose Color Preset (kanagawa-wave / kanagawa-dragon / sakura-dusk / midnight-aqua)"
+    Write-Host "  [4] Chon Preset mau / Choose Color Preset (12 themes)"
     Write-Host "  [5] Ap dung tu kanagawa.config.json / Apply from config & reload"
     Write-Host "  [6] Tat hinh nen / Disable Wallpaper (solid theme background)"
     Write-Host ""
@@ -80,9 +80,23 @@ if ($Menu) {
             if (-not $AgentAvatar) { Write-Host "[kanagawa] Cancelled / Da huy."; exit 0 }
         }
         "4" {
-            Write-Host "Presets: kanagawa-wave, kanagawa-dragon, sakura-dusk, midnight-aqua"
-            $Preset = Read-Host "Enter preset name / Nhap ten preset"
-            if (-not $Preset) { Write-Host "[kanagawa] Cancelled / Da huy."; exit 0 }
+            $allPresets = @(
+                "kanagawa-wave", "kanagawa-dragon", "sakura-dusk", "midnight-aqua",
+                "catppuccin-mocha", "rose-pine", "tokyo-night", "nord-frost",
+                "everforest", "gruvbox-warm", "vesper-minimal", "oxocarbon"
+            )
+            Write-Host ""
+            for ($idx = 0; $idx -lt $allPresets.Count; $idx++) {
+                Write-Host ("  [{0,2}] {1}" -f ($idx + 1), $allPresets[$idx])
+            }
+            Write-Host ""
+            $pick = (Read-Host "Select number (1-$($allPresets.Count)) or preset name / Chon so hoac nhap ten").Trim()
+            if (-not $pick) { Write-Host "[kanagawa] Cancelled / Da huy."; exit 0 }
+            if ($pick -match '^\d+$' -and [int]$pick -ge 1 -and [int]$pick -le $allPresets.Count) {
+                $Preset = $allPresets[[int]$pick - 1]
+            } else {
+                $Preset = $pick
+            }
         }
         "5" { }
         "6" { $NoWallpaper = $true }

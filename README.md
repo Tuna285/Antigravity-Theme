@@ -55,8 +55,9 @@ Không cần mở hay tự sửa file `kanagawa.css` nặng hay tự chuyển �
   ```
 - **Cách 2 — Dùng tham số dòng lệnh / Preset màu có sẵn:**
   ```powershell
-  # Đổi nhanh preset màu: kanagawa-wave | kanagawa-dragon | sakura-dusk | midnight-aqua
-  .\customize-kanagawa.ps1 -Preset sakura-dusk
+  # Đổi nhanh 12 preset màu có sẵn:
+  # kanagawa-wave | kanagawa-dragon | sakura-dusk | midnight-aqua | catppuccin-mocha | rose-pine | tokyo-night | nord-frost | everforest | gruvbox-warm | vesper-minimal | oxocarbon
+  .\customize-kanagawa.ps1 -Preset catppuccin-mocha
 
   # Truyền thẳng đường dẫn ảnh (hỗ trợ png, jpg, jpeg, webp, svg, gif, bmp)
   .\customize-kanagawa.ps1 -Wallpaper "D:\Pictures\bg.jpg" -UserAvatar "D:\Pictures\me.png" -AgentAvatar "D:\Pictures\bot.png"
@@ -122,8 +123,9 @@ No need to manually edit `kanagawa.css` or Base64-encode images.
   ```
 - **Option B — CLI Presets & Image Paths:**
   ```powershell
-  # Switch built-in presets: kanagawa-wave | kanagawa-dragon | sakura-dusk | midnight-aqua
-  .\customize-kanagawa.ps1 -Preset sakura-dusk
+  # Switch among 12 built-in presets:
+  # kanagawa-wave | kanagawa-dragon | sakura-dusk | midnight-aqua | catppuccin-mocha | rose-pine | tokyo-night | nord-frost | everforest | gruvbox-warm | vesper-minimal | oxocarbon
+  .\customize-kanagawa.ps1 -Preset catppuccin-mocha
 
   # Pass image paths directly (png, jpg, jpeg, webp, svg, gif, bmp)
   .\customize-kanagawa.ps1 -Wallpaper "D:\Pictures\bg.jpg" -UserAvatar "D:\Pictures\me.png" -AgentAvatar "D:\Pictures\bot.png"

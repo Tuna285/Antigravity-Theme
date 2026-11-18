@@ -172,9 +172,15 @@ function readThemeCss() {
     }
 }
 
+function wantsBitmapFonts() {
+    const themeBase = path.basename(getThemeDir()).toLowerCase();
+    return themeBase.includes("pixel") || themeBase.includes("doodle");
+}
+
 function buildCss() {
     const themeCss = readThemeCss();
-    return themeCss ? buildFontCss() + themeCss : "";
+    if (!themeCss) return "";
+    return wantsBitmapFonts() ? buildFontCss() + themeCss : themeCss;
 }
 
 /**
@@ -623,75 +629,7 @@ const SEND_PULSE_JS = `(() => {
 const STREAM_WATCH_JS = `(() => {
   if (window.__pxStreamWatch) return 'already-present';
 
-  const STREAM_CLASS = 'px-streaming';
   const MODAL_CLASS = 'px-modal-open';
-  const BOTTOM_SLOP_PX = 48;   // "close enough to the bottom" tolerance
-  // 空闲节流：isStreaming() 是一次全文档 querySelector，而这个 observer
-  // 从不断开，应用空闲时的每次 React 更新都会白付一次查询。空闲态半秒
-  // 查一次足够（光标/停止按钮晚半秒出现/消失，肉眼不可辨）；刚发送
-  // （html.px-sending）时旁路节流——停止按钮紧随发送出现，不能等；
-  // 已在流式中则不节流，滚动跟随每帧都要跑。
-  const IDLE_CHECK_MS = 500;
-
-  let cachedScroller = null;
-  const scroller = () => {
-    if (cachedScroller && cachedScroller.isConnected && cachedScroller.scrollHeight > cachedScroller.clientHeight + 20) {
-      return cachedScroller;
-    }
-    const list = document.querySelectorAll('[class*="overflow-y-auto"], [class*="overflow-auto"]');
-    let best = null;
-    for (const el of list) {
-      if (el.scrollHeight <= el.clientHeight + 20) continue;
-      if (!best || el.clientHeight > best.clientHeight) best = el;
-    }
-    cachedScroller = best;
-    return best;
-  };
-
-  const isStreaming = () => {
-    // Any visible stop affordance means a reply is in flight.
-    return !!document.querySelector('[data-testid*="stop"], [aria-label*="Stop"], [aria-label*="停止"]');
-  };
-
-  let pinned = false;
-  let raf = 0;
-  let lastIdleCheck = 0;
-
-  const tick = () => {
-    raf = 0;
-    const de = document.documentElement;
-    const active = de.classList.contains(STREAM_CLASS);
-    const sending = de.classList.contains('px-sending');
-    if (!active && !sending && (performance.now() - lastIdleCheck) < IDLE_CHECK_MS) {
-      return;   // throttled idle check; next mutation re-arms the rAF
-    }
-    lastIdleCheck = performance.now();
-    const streaming = isStreaming();
-    if (streaming) {
-      if (!de.classList.contains(STREAM_CLASS)) de.classList.add(STREAM_CLASS);
-    } else if (de.classList.contains(STREAM_CLASS)) {
-      de.classList.remove(STREAM_CLASS);
-      pinned = false;
-      cachedScroller = null;
-    }
-    if (!streaming) return;
-    const sc = scroller();
-    if (!sc) return;
-    const distance = sc.scrollHeight - sc.clientHeight - sc.scrollTop;
-    if (distance <= BOTTOM_SLOP_PX) pinned = true;
-    else if (distance > BOTTOM_SLOP_PX * 4) pinned = false;
-    if (pinned) {
-      // Direct assignment eliminates frame-restart jank of smooth scroll
-      sc.scrollTop = sc.scrollHeight;
-    }
-  };
-
-  const schedule = () => {
-    if (raf) return;
-    // rAF rather than reacting per mutation: streaming fires mutations far
-    // faster than frames, and scrolling more than once per frame is wasted.
-    raf = requestAnimationFrame(tick);
-  };
 
   // --- modal-open 标记（替代 CSS 里的 body:has([role="dialog"])） ------
   // :has() 挂在 body 上会跟着任何子树变动一起失效（14.2 实测 4.7 倍），
@@ -806,13 +744,11 @@ const STREAM_WATCH_JS = `(() => {
 
   const mo = new MutationObserver((muts) => {
     window.__pxDomGen = (window.__pxDomGen || 0) + 1;
-    try { tagMutations(muts); } catch (e) { /* must never kill schedule() */ }
-    try { trackDialogs(muts); } catch (e) { /* must never kill schedule() */ }
-    schedule();
+    try { tagMutations(muts); } catch (e) { /* must never kill trackDialogs */ }
+    try { trackDialogs(muts); } catch (e) { /* keep observer resilient */ }
   });
-  mo.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
-  window.__pxStreamWatch = { stop: () => { mo.disconnect(); if (raf) cancelAnimationFrame(raf); } };
-  tick();
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+  window.__pxStreamWatch = { stop: () => { mo.disconnect(); } };
   return 'installed';
 })()`;
 
@@ -3145,28 +3081,31 @@ function attachPixelTheme(win) {
             if (css) {
                 applyCss(css);
             }
-            // Pre-warm font glyph caches and GPU texture atlas immediately at startup
-            wc.executeJavaScript(FONT_PREWARM_JS, true)
-                .catch((e) => console.error("[pixel-theme] font prewarm failed:", e));
-            // Must run on every dom-ready, not just once: the grid size depends
-            // on DPR, which changes with monitor, OS scale and window zoom.
-            wc.executeJavaScript(DPR_SYNC_JS, true)
-                .then((r) => {
-                    if (r !== "installed" && r !== "refreshed") {
-                        console.error("[pixel-theme] dpr sync not installed:", r);
-                    }
-                })
-                .catch((e) => console.error("[pixel-theme] dpr sync failed:", e));
-            // Send-pulse listener for the message-send animation. Idempotent,
-            // so re-running it on every dom-ready is safe.
-            wc.executeJavaScript(SEND_PULSE_JS, true)
-                .then((r) => {
-                    if (r !== "installed" && r !== "already-present") {
-                        console.error("[pixel-theme] send pulse not installed:", r);
-                    }
-                })
-                .catch((e) => console.error("[pixel-theme] send pulse failed:", e));
-            // Streaming caret + scroll-follow. Idempotent like the others.
+            const isPixelTheme = path.basename(getThemeDir()).toLowerCase().includes("pixel");
+            if (isPixelTheme) {
+                // Pre-warm font glyph caches and GPU texture atlas immediately at startup
+                wc.executeJavaScript(FONT_PREWARM_JS, true)
+                    .catch((e) => console.error("[pixel-theme] font prewarm failed:", e));
+                // Must run on every dom-ready, not just once: the grid size depends
+                // on DPR, which changes with monitor, OS scale and window zoom.
+                wc.executeJavaScript(DPR_SYNC_JS, true)
+                    .then((r) => {
+                        if (r !== "installed" && r !== "refreshed") {
+                            console.error("[pixel-theme] dpr sync not installed:", r);
+                        }
+                    })
+                    .catch((e) => console.error("[pixel-theme] dpr sync failed:", e));
+                // Send-pulse listener for the message-send animation. Idempotent,
+                // so re-running it on every dom-ready is safe.
+                wc.executeJavaScript(SEND_PULSE_JS, true)
+                    .then((r) => {
+                        if (r !== "installed" && r !== "already-present") {
+                            console.error("[pixel-theme] send pulse not installed:", r);
+                        }
+                    })
+                    .catch((e) => console.error("[pixel-theme] send pulse failed:", e));
+            }
+            // Menu/modal tagging observer.
             wc.executeJavaScript(STREAM_WATCH_JS, true)
                 .then((r) => {
                     if (r !== "installed" && r !== "already-present") {
@@ -3195,14 +3134,16 @@ function attachPixelTheme(win) {
                     })
                     .catch((e) => console.error("[pixel-theme] window controls failed:", e));
             }
-            // Settings modal graceful exit animation controller.
-            wc.executeJavaScript(SETTINGS_MODAL_JS, true)
-                .then((r) => {
-                    if (r !== "installed" && r !== "already-present") {
-                        console.error("[pixel-theme] settings modal controller not installed:", r);
-                    }
-                })
-                .catch((e) => console.error("[pixel-theme] settings modal controller failed:", e));
+            if (isPixelTheme) {
+                // Settings modal graceful exit animation controller.
+                wc.executeJavaScript(SETTINGS_MODAL_JS, true)
+                    .then((r) => {
+                        if (r !== "installed" && r !== "already-present") {
+                            console.error("[pixel-theme] settings modal controller not installed:", r);
+                        }
+                    })
+                    .catch((e) => console.error("[pixel-theme] settings modal controller failed:", e));
+            }
             // Inline comment hover tracker O(1) probe to eliminate 950ms mousemove reflows.
             wc.executeJavaScript(COMMENT_TRACKER_OPT_JS, true)
                 .then((r) => {
